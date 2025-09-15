@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2495565153959045850}
   - component: {fileID: 8693423066158550598}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1762377794702023824}
   - component: {fileID: 4085899212096268129}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8032834574778096811}
   - component: {fileID: 792814209912342670}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Left_Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1316181596824985558}
   - component: {fileID: 6156170164036925239}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Right_Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1260314089790850397}
   - component: {fileID: 6192603469720778051}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Left_Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,7 +430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7948939911883901568}
   - component: {fileID: 8218100602699556508}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Right_Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,12 +514,13 @@ GameObject:
   m_Component:
   - component: {fileID: 5761094022753914986}
   - component: {fileID: 726270166539609033}
+  - component: {fileID: -5548270402596419331}
   - component: {fileID: 291912819100256514}
   - component: {fileID: 2608587959015964489}
   - component: {fileID: 7658677851461255231}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Minion
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -566,6 +567,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-5548270402596419331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9142442333264617370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503d9960b985946448164e8d0fd8f26f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &291912819100256514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,12 +591,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107fc1c52c46a6f4f832be2d5fd1bdcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  speed: 10
   timeBetweenAttacks: 2
-  damage: 10
+  attackSpeed: 5
   stopDistance: 2
-  attackSpeed: 2
+  health: 2
+  speed: 10
+  damage: 10
 --- !u!50 &2608587959015964489
 Rigidbody2D:
   serializedVersion: 4
@@ -599,7 +612,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -610,7 +623,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &7658677851461255231
 BoxCollider2D:
   m_ObjectHideFlags: 0

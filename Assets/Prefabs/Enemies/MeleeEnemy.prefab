@@ -352,6 +352,7 @@ GameObject:
   - component: {fileID: 5091852829367362835}
   - component: {fileID: 1606330468687501787}
   - component: {fileID: 8865470066214740610}
+  - component: {fileID: 2920554716407357488}
   m_Layer: 7
   m_Name: MeleeEnemy
   m_TagString: Untagged
@@ -483,12 +484,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107fc1c52c46a6f4f832be2d5fd1bdcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeBetweenAttacks: 2
+  attackSpeed: 10
+  stopDistance: 1.75
   health: 3
   speed: 8.47
-  timeBetweenAttacks: 2
   damage: 1
-  stopDistance: 1.75
-  attackSpeed: 10
+--- !u!114 &2920554716407357488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4224975538451248586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503d9960b985946448164e8d0fd8f26f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5485468301396758554
 GameObject:
   m_ObjectHideFlags: 0

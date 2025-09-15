@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 108715628817346567}
   - component: {fileID: 3509803392086004597}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2549375978961116370}
   - component: {fileID: 1611188586086893361}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Leg_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8007517742673530412}
   - component: {fileID: 7430179841471945284}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Leg_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8314654751974196822}
   - component: {fileID: 1131654510922666265}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hand_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +349,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6845594794018244917}
   - component: {fileID: 8197965316872929773}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Horn_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,7 +433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8248198717476584875}
   - component: {fileID: 3676779080660205587}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hand_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -517,7 +517,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3854655777214505514}
   - component: {fileID: 178764117246291392}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Horn_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -601,9 +601,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1694033038576266840}
   - component: {fileID: 5716418969650613577}
-  m_Layer: 0
+  - component: {fileID: 7037837524280925569}
+  - component: {fileID: 8033279547410063662}
+  - component: {fileID: 1623454949354323240}
+  - component: {fileID: 2693536112634862691}
+  m_Layer: 7
   m_Name: Summoner
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -647,6 +651,113 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!61 &7037837524280925569
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6040555885865403945}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.015687346, y: 1.3334117}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 8.027862, y: 8.435726}
+  m_EdgeRadius: 0
+--- !u!50 &8033279547410063662
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6040555885865403945}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &1623454949354323240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6040555885865403945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52fe429527354ba469282b7e2030dadf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenAttacks: 5
+  attackSpeed: 5
+  stopDistance: 0.5
+  health: 2
+  speed: 6
+  damage: 10
+  minX: -18
+  maxX: 18
+  minY: -12
+  maxY: 12
+  enemyToSummon: {fileID: 291912819100256514, guid: b907356239e13d44997bbbfab25cae47, type: 3}
+--- !u!114 &2693536112634862691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6040555885865403945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503d9960b985946448164e8d0fd8f26f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8092787519569866137
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,7 +768,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4043919901853756212}
   - component: {fileID: 2936075982780840167}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}

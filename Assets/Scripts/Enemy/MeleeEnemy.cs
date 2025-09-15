@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class MeleeEnemy : Enemy
 {
-    [SerializeField] private float stopDistance = 2f;
-    [SerializeField] private float attackSpeed = 2f;
+    private MeleeAttack meleeAttack;
+
+    protected override void Start()
+    {
+        base.Start();
+        meleeAttack = GetComponent<MeleeAttack>();
+    }
 
     private void Update()
     {
@@ -27,23 +32,6 @@ public class MeleeEnemy : Enemy
 
     protected override void Attack()
     {
-        StartCoroutine(AttackCoroutine());
-    }
-
-    IEnumerator AttackCoroutine()
-    {
-        playerTransform.GetComponent<Player>().TakeDamage(Damage);
-
-        Vector2 originalPosition = transform.position;
-        Vector2 targetPosition = playerTransform.position;
-
-        float percent = 0;
-        while(percent <= 1)
-        {
-            percent += Time.deltaTime * attackSpeed;
-            float formula = (-Mathf.Pow(percent, 2) + percent) * 4;
-            transform.position = Vector2.Lerp(originalPosition, targetPosition, formula);
-            yield return null;
-        }
+        StartCoroutine(meleeAttack.AttackCoroutine(attackSpeed, playerTransform, Damage));
     }
 }

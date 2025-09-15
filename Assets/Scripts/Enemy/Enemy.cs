@@ -5,9 +5,11 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour, IDamageable
 {
+    [SerializeField] protected float timeBetweenAttacks = 2f;
+    [SerializeField] protected float attackSpeed = 2f;
+    [SerializeField] protected float stopDistance = 2f;
     [SerializeField] private float health = 10f;
     [SerializeField] private float speed = 10f;
-    [SerializeField] private float timeBetweenAttacks = 2f;
     [SerializeField] private float damage = 10f;
 
     protected Transform playerTransform;
@@ -31,7 +33,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         set { damage = value; }
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         attackTimer = new Timer(timeBetweenAttacks);
