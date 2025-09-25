@@ -50,12 +50,26 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Enemy enemy = other.gameObject.GetComponent<Enemy>();
-        if(enemy != null)
+        //if (other.CompareTag("Enemy"))
+        //{
+            if(enemy != null)
+            {
+                enemy.TakeDamage(damage);
+                DestroyProjectile();
+                return;
+            }
+        //}
+
+        /*if(other.CompareTag("Player"))
         {
-            enemy.TakeDamage(damage);
-            DestroyProjectile();
-            return;
-        }
+            Player player = other.gameObject.GetComponent<Player>();
+            if (player != null)
+            {
+                player.TakeDamage(damage);
+                DestroyProjectile();
+                return;
+            }
+        }*/
 
         if(other.CompareTag("Wall"))
         {
