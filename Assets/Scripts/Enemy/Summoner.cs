@@ -26,7 +26,7 @@ public class Summoner : Enemy
         meleeAttack = GetComponent<MeleeAttack>();
     }
 
-    private void Update()
+    protected override void Update()
     {
         if(playerTransform != null)
         {

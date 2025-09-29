@@ -40,10 +40,23 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         attackTimer = new Timer(timeBetweenAttacks);
     }
 
-    /*private void Update()
+    protected virtual void Update()
     {
-        TryAttack();
-    }*/
+        if (playerTransform != null)
+        {
+            if (Vector2.Distance(transform.position, playerTransform.position) > stopDistance)
+            {
+                MoveToPlayer();
+            }
+            else
+                TryAttack();
+        }
+    }
+
+    private void MoveToPlayer()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, Speed * Time.deltaTime);
+    }
 
     protected void TryAttack()
     {

@@ -12,24 +12,6 @@ public class MeleeEnemy : Enemy
         meleeAttack = GetComponent<MeleeAttack>();
     }
 
-    private void Update()
-    {
-        if(playerTransform != null)
-        {
-            MoveToPlayer();
-        }
-    }
-
-    private void MoveToPlayer()
-    {
-        if (Vector2.Distance(transform.position, playerTransform.position) > stopDistance)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, Speed * Time.deltaTime);
-        }
-        else
-            TryAttack();
-    }
-
     protected override void Attack()
     {
         StartCoroutine(meleeAttack.AttackCoroutine(attackSpeed, playerTransform, Damage));

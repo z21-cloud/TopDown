@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -4143037919031800281}
   - component: {fileID: -7494270190747529563}
   - component: {fileID: 278833223750541151}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,4 +185,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  speed: 10
+  projectileLifeTime: 5
   hitEffects: {fileID: 4507321033216485108, guid: fbd76159e5f1a6f478ab24f7e4b365ed, type: 3}

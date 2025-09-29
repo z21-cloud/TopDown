@@ -130,22 +130,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1365203471238028057, guid: c70fcac40a18ac64eb68132b3fb0667c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.02705669
+    - target: {fileID: 1657541548357770204, guid: c70fcac40a18ac64eb68132b3fb0667c, type: 3}
+      propertyPath: bulletSpeed
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1657541548357770204, guid: c70fcac40a18ac64eb68132b3fb0667c, type: 3}
-      propertyPath: stopDistance
-      value: 10
+      propertyPath: bulletDamage
+      value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 1690770090773605356, guid: c70fcac40a18ac64eb68132b3fb0667c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.3
+    - target: {fileID: 1657541548357770204, guid: c70fcac40a18ac64eb68132b3fb0667c, type: 3}
+      propertyPath: bulletLifetime
+      value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 1690770090773605356, guid: c70fcac40a18ac64eb68132b3fb0667c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.3
-      objectReference: {fileID: 0}
+    - target: {fileID: 1657541548357770204, guid: c70fcac40a18ac64eb68132b3fb0667c, type: 3}
+      propertyPath: projectileEffects
+      value: 
+      objectReference: {fileID: 4507321033216485108, guid: fbd76159e5f1a6f478ab24f7e4b365ed, type: 3}
     - target: {fileID: 1690770090773605356, guid: c70fcac40a18ac64eb68132b3fb0667c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.09
@@ -185,10 +185,6 @@ PrefabInstance:
     - target: {fileID: 1690770090773605356, guid: c70fcac40a18ac64eb68132b3fb0667c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3505900730017452607, guid: c70fcac40a18ac64eb68132b3fb0667c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3904877695522066954, guid: c70fcac40a18ac64eb68132b3fb0667c, type: 3}
       propertyPath: m_Name
@@ -1805,12 +1801,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 777137125789159899, guid: dccafb9994da52343bb39a51e21b0bc0, type: 3}
+      propertyPath: projectileSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 777137125789159899, guid: dccafb9994da52343bb39a51e21b0bc0, type: 3}
       propertyPath: timeBetweenShots
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 777137125789159899, guid: dccafb9994da52343bb39a51e21b0bc0, type: 3}
       propertyPath: projectileLifetime
-      value: 0.8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1029394499747765986, guid: dccafb9994da52343bb39a51e21b0bc0, type: 3}
       propertyPath: m_LocalPosition.x
