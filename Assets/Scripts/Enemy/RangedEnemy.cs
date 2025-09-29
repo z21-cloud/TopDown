@@ -20,16 +20,27 @@ public class RangedEnemy : Enemy
         anim = GetComponent<Animator>();
     }
 
+    protected override void Update()
+    {
+        if (playerTransform != null)
+        {
+            if (Vector2.Distance(transform.position, playerTransform.position) > stopDistance)
+            {
+                MoveToPlayer();
+            }
+            TryAttack();
+        }
+    }
+
+    private void MoveToPlayer()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, Speed * Time.deltaTime);
+    }
+
     protected override void Attack()
     {
         Debug.Log("attacking");
         anim.SetTrigger("attack");
-        Shoot();
-    }
-
-    private void Shoot()
-    {
-
     }
 
     public void RangedAttack()

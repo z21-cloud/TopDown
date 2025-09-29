@@ -234,6 +234,10 @@ MonoBehaviour:
   damage: 2
   shotPoint: {fileID: 4768824946743896231}
   enemyBullet: {fileID: 1072754720842054038, guid: 84f800640a89d1e418666f71a3e06fa0, type: 3}
+  bulletSpeed: 25
+  bulletDamage: 5
+  bulletLifetime: 5
+  projectileEffects: {fileID: 4507321033216485108, guid: fbd76159e5f1a6f478ab24f7e4b365ed, type: 3}
 --- !u!1 &4089024608673793387
 GameObject:
   m_ObjectHideFlags: 0

@@ -736,8 +736,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 5
-  attackSpeed: 5
-  stopDistance: 0.5
+  attackSpeed: 10
+  stopDistance: 3
   health: 2
   speed: 6
   damage: 10
@@ -745,6 +745,7 @@ MonoBehaviour:
   maxX: 18
   minY: -12
   maxY: 12
+  timeBetweenSummons: 5
   enemyToSummon: {fileID: 291912819100256514, guid: b907356239e13d44997bbbfab25cae47, type: 3}
 --- !u!114 &2693536112634862691
 MonoBehaviour:
