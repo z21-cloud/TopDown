@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public abstract class Enemy : MonoBehaviour, IDamageable
 {
@@ -69,5 +70,18 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
         Destroy(gameObject);
         //add listener to set active false ;  object pooling
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (playerTransform == null) return;
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position, playerTransform.position);
+
+        /*float distance = Vector2.Distance(transform.position, playerTransform.position);
+        Handles.Label(
+            (playerTransform.position + transform.position) / 2, 
+            distance.ToString("F1")
+            ); */
     }
 }
