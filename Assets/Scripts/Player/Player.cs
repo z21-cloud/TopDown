@@ -31,4 +31,13 @@ public class Player : MonoBehaviour, IDamageable
     {
         Destroy(gameObject);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        IPickable pickable = collision.GetComponent<IPickable>();
+        if(pickable != null)
+        {
+            pickable.OnPickUp(gameObject);
+        }
+    }
 }
