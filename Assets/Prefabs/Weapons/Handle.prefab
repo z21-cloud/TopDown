@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4999003101682151050}
   - component: {fileID: 4974060063625784817}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6538909164693400888}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,10 @@ GameObject:
   - component: {fileID: 6402789926781014139}
   - component: {fileID: 777137125789159899}
   - component: {fileID: -4515380388168132045}
-  m_Layer: 0
+  - component: {fileID: 931240978260002742}
+  - component: {fileID: 4873755877896843423}
+  - component: {fileID: 9184358810651724226}
+  m_Layer: 6
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,19 +182,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8960724841747571090}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e47f2af1d2e8cd479ac5e6a80a82f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 10
-  rotationSpeed: 5
-  timeBetweenShots: 0.15
-  projectileLifetime: 0.5
-  damage: 2
+  projectileSpeed: 15
+  timeBetweenShots: 0.2
+  projectileLifetime: 4
+  damage: 1
   projectilePrefab: {fileID: 6439546555332605565, guid: cc3eb60f6ecb0174a8ffdd4a52fc74e5, type: 3}
   projectileEffects: {fileID: 4507321033216485108, guid: fbd76159e5f1a6f478ab24f7e4b365ed, type: 3}
   projectileParent: {fileID: 6538909164693400888}
+  weaponRotator: {fileID: 4873755877896843423}
+  aimProvider: {fileID: 9184358810651724226}
 --- !u!114 &-4515380388168132045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,3 +209,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 777137125789159899}
+--- !u!114 &931240978260002742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8960724841747571090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcb00f3771489a143b319db4e754440d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 777137125789159899}
+--- !u!114 &4873755877896843423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8960724841747571090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff1d0438999d6954a9c196d86181c586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aimProvider: {fileID: 9184358810651724226}
+  rotationSpeed: 5
+--- !u!114 &9184358810651724226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8960724841747571090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 477c081736f3933478cc867438d0d9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

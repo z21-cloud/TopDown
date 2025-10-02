@@ -5,31 +5,21 @@ using UnityEngine;
 
 public class WeaponRotator : MonoBehaviour
 {
+    [SerializeField] private AimProvider aimProvider;
     [SerializeField] private float rotationSpeed = 5f;
 
-    private Vector2 aimDirection;
     private Quaternion targetRotation;
-    private Camera mainCamera;
-    private void Start()
+    private Vector2 aimDirection;
+
+    private void Update()
     {
-        mainCamera = Camera.main;    
+        aimDirection = aimProvider.GetAimDirection();
+        UpdateRotation(aimDirection);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        UpdateAiming();
-        UpdateRotation();
-    }
+    
 
-    private void UpdateAiming()
-    {
-        Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        mouseWorldPos.z = transform.position.z;
-        aimDirection = (mouseWorldPos - transform.position).normalized;
-    }
-
-    private void UpdateRotation()
+    private void UpdateRotation(Vector2 aimDirection)
     {
         float angle = Mathf.Atan2(aimDirection.x, aimDirection.y) * Mathf.Rad2Deg;
         targetRotation = Quaternion.Euler(0, 0, -angle);
@@ -38,6 +28,5 @@ public class WeaponRotator : MonoBehaviour
         //transform.rotation = rotation;
     }
 
-    public Vector2 GetAimDirection() => aimDirection;
     public Quaternion GetTargetRotation() => targetRotation;
 }

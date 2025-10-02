@@ -6,11 +6,17 @@ public class WeaponHolder : MonoBehaviour
 {
     [SerializeField] private Transform weaponSpot;
     private Weapon currentWeapon;
+    private WeaponRotator currentWeaponRotator;
+    private WeaponInput currentWeaponInput;
 
     private void Start()
     {
         if (weaponSpot.childCount > 0)
+        {
             currentWeapon = weaponSpot.GetComponentInChildren<Weapon>();
+            currentWeaponRotator = weaponSpot.GetComponentInChildren<WeaponRotator>();
+            currentWeaponInput = weaponSpot.GetComponentInChildren<WeaponInput>();
+        }
     }
 
     public void EqiupWeapon(WeaponPickup pickup)
@@ -19,7 +25,12 @@ public class WeaponHolder : MonoBehaviour
 
         Weapon newWeapon = Instantiate(pickup.GetWeaponPrefab(), weaponSpot.position, weaponSpot.rotation, weaponSpot);
         currentWeapon = newWeapon;
+        currentWeaponRotator = newWeapon.gameObject.GetComponent<WeaponRotator>();
+        currentWeaponInput = newWeapon.gameObject.GetComponent<WeaponInput>();
+        
         currentWeapon.enabled = true;
+        currentWeaponRotator.enabled = true;
+        currentWeaponInput.enabled = true;
         Destroy(pickup.gameObject);
     }
 }
