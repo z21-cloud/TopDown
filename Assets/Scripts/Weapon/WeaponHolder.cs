@@ -13,9 +13,8 @@ public class WeaponHolder : MonoBehaviour
     {
         if (weaponSpot.childCount > 0)
         {
-            currentWeapon = weaponSpot.GetComponentInChildren<Weapon>();
-            currentWeaponRotator = weaponSpot.GetComponentInChildren<WeaponRotator>();
-            currentWeaponInput = weaponSpot.GetComponentInChildren<WeaponInput>();
+            GetWeaponComponents();
+            EnableWeaponComponents();
         }
     }
 
@@ -27,10 +26,22 @@ public class WeaponHolder : MonoBehaviour
         currentWeapon = newWeapon;
         currentWeaponRotator = newWeapon.gameObject.GetComponent<WeaponRotator>();
         currentWeaponInput = newWeapon.gameObject.GetComponent<WeaponInput>();
-        
+
+        EnableWeaponComponents();
+        Destroy(pickup.gameObject);
+    }
+
+    private void EnableWeaponComponents()
+    {
         currentWeapon.enabled = true;
         currentWeaponRotator.enabled = true;
         currentWeaponInput.enabled = true;
-        Destroy(pickup.gameObject);
+    }
+
+    private void GetWeaponComponents()
+    {
+        currentWeapon = weaponSpot.GetComponentInChildren<Weapon>();
+        currentWeaponRotator = weaponSpot.GetComponentInChildren<WeaponRotator>();
+        currentWeaponInput = weaponSpot.GetComponentInChildren<WeaponInput>();
     }
 }

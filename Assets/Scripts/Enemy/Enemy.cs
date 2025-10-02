@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +8,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField] protected float timeBetweenAttacks = 2f;
     [SerializeField] protected float attackSpeed = 2f;
     [SerializeField] protected float stopDistance = 2f;
+    [SerializeField][Range(0f, 1f)] protected float dropChance = .2f;
+    [SerializeField] private List<GameObject> weaponsPrefabs;
     [SerializeField] private float health = 10f;
     [SerializeField] private float speed = 10f;
     [SerializeField] private float damage = 10f;
@@ -38,6 +39,17 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         attackTimer = new Timer(timeBetweenAttacks);
+
+    }
+
+    private void GenerateDropChance()
+    {
+        float roll = Random.value;
+        if(roll <= dropChance && weaponsPrefabs.Count > 0)
+        {
+            int randomIndex = Random.Range(0, weaponsPrefabs.Count);
+            Instantiate(weaponsPrefabs[randomIndex], transform.position, Quaternion.identity);
+        }
     }
 
     protected virtual void Update()
@@ -81,6 +93,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     private void Death()
     {
+        GenerateDropChance();
         Destroy(gameObject);
         //add listener to set active false ;  object pooling
     }
