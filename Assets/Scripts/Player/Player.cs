@@ -1,35 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Player : MonoBehaviour, IDamageable
+public class Player : MonoBehaviour
 {
-    [SerializeField] private float health = 100f;
     [SerializeField] private float speed = 5f;
-
-    public float Health
-    {
-        get { return health; }
-        set { health = value; }
-    }
-
+    private Health health;
     public float Speed
     {
         get { return speed; }
         set { speed = value; }
     }
 
-    public void TakeDamage(float damage)
+    private void Awake()
     {
-        Health -= damage;
-        Debug.Log(Health);
-        if (Health <= 0)
-            Death(); //Listeners?
+        health = GetComponent<Health>();
     }
 
-    private void Death()
+    private void OnEnable()
     {
-        Destroy(gameObject);
+        health.OnDeath.AddListener(OnPlayerDeath);
+    }
+
+    private void OnDisable()
+    {
+        health.OnDeath.RemoveListener(OnPlayerDeath);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -39,5 +35,11 @@ public class Player : MonoBehaviour, IDamageable
         {
             pickable.OnPickUp(gameObject);
         }
+    }
+
+    private void OnPlayerDeath()
+    {
+        Debug.Log("Death!");
+        gameObject.SetActive(false);
     }
 }

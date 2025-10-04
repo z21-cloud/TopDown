@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour
 {
-    public IEnumerator AttackCoroutine(float attackSpeed, Transform playerTransform, float damage)
+    public IEnumerator AttackCoroutine(float attackSpeed, Transform playerTransform, int damage)
     {
-        playerTransform.GetComponent<Player>().TakeDamage(damage);
+        playerTransform.gameObject.GetComponent<Health>().TakeDamage(damage);
 
         Vector2 originalPosition = transform.position;
         Vector2 targetPosition = playerTransform.position;

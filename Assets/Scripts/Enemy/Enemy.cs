@@ -3,36 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public abstract class Enemy : MonoBehaviour, IDamageable
+public abstract class Enemy : MonoBehaviour
 {
     [SerializeField] protected float timeBetweenAttacks = 2f;
     [SerializeField] protected float attackSpeed = 2f;
     [SerializeField] protected float stopDistance = 2f;
     
-    [SerializeField] private float health = 10f;
     [SerializeField] private float speed = 10f;
-    [SerializeField] private float damage = 10f;
+    [SerializeField] private int damage = 10;
 
     [SerializeField] private DropTable dropTable;
     protected Transform playerTransform;
     protected Timer attackTimer;
-
-    public float Health
-    {
-        get { return health; }
-        set { health = value; }
-    }
-
+    protected Health health;
     public float Speed
     {
         get { return speed; }
         set { speed = value; }
     }
 
-    public float Damage
+    public int Damage
     {
         get { return damage; }
         set { damage = value; }
+    }
+
+    private void Awake()
+    {
+        health = GetComponent<Health>();
+    }
+
+    private void OnEnable()
+    {
+        health.OnDeath.AddListener(Death);
+    }
+
+    private void OnDisable()
+    {
+        health.OnDeath.RemoveListener(Death);
     }
 
     protected virtual void Start()
@@ -73,13 +81,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     protected abstract void Attack();
 
-    public void TakeDamage(float damage)
-    {
-        Health -= damage;
-        Debug.Log(Health);
-        if (Health <= 0)
-            Death();
-    }
 
     private void Death()
     {
