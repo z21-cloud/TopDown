@@ -516,6 +516,7 @@ GameObject:
   - component: {fileID: 726270166539609033}
   - component: {fileID: -5548270402596419331}
   - component: {fileID: 291912819100256514}
+  - component: {fileID: 6075255230468006839}
   - component: {fileID: 2608587959015964489}
   - component: {fileID: 7658677851461255231}
   m_Layer: 7
@@ -597,6 +598,25 @@ MonoBehaviour:
   health: 2
   speed: 10
   damage: 10
+  dropTable: {fileID: 6075255230468006839}
+--- !u!114 &6075255230468006839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9142442333264617370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c60712b75bc6144e94bc4913e33a243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropChance: 0.2
+  weaponsPrefabs:
+  - {fileID: 8960724841747571090, guid: dccafb9994da52343bb39a51e21b0bc0, type: 3}
+  - {fileID: 1869033183921582320, guid: 82b86bc9f3014d54fb14dfb9d9468e63, type: 3}
+  - {fileID: 3131163504459650418, guid: ce78ffc8240c04d4d9509b0ccb59de39, type: 3}
+  - {fileID: 5243999330328117537, guid: 58cba8bb09c8db443a828e8bf64a3e7d, type: 3}
 --- !u!50 &2608587959015964489
 Rigidbody2D:
   serializedVersion: 4

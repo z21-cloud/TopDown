@@ -605,6 +605,7 @@ GameObject:
   - component: {fileID: 8033279547410063662}
   - component: {fileID: 1623454949354323240}
   - component: {fileID: 2693536112634862691}
+  - component: {fileID: -5339630192429333374}
   m_Layer: 7
   m_Name: Summoner
   m_TagString: Enemy
@@ -741,6 +742,7 @@ MonoBehaviour:
   health: 2
   speed: 6
   damage: 10
+  dropTable: {fileID: -5339630192429333374}
   minX: -18
   maxX: 18
   minY: -12
@@ -759,6 +761,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 503d9960b985946448164e8d0fd8f26f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5339630192429333374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6040555885865403945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c60712b75bc6144e94bc4913e33a243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropChance: 0.2
+  weaponsPrefabs:
+  - {fileID: 8960724841747571090, guid: dccafb9994da52343bb39a51e21b0bc0, type: 3}
+  - {fileID: 1869033183921582320, guid: 82b86bc9f3014d54fb14dfb9d9468e63, type: 3}
+  - {fileID: 3131163504459650418, guid: ce78ffc8240c04d4d9509b0ccb59de39, type: 3}
+  - {fileID: 5243999330328117537, guid: 58cba8bb09c8db443a828e8bf64a3e7d, type: 3}
 --- !u!1 &8092787519569866137
 GameObject:
   m_ObjectHideFlags: 0

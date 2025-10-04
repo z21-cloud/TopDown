@@ -33,7 +33,6 @@ public class Weapon : MonoBehaviour
         HandleTimer();
     }
 
-
     private void HandleTimer()
     {
         shooterTimer += Time.deltaTime;
