@@ -784,6 +784,7 @@ MonoBehaviour:
   timeBetweenAttacks: 5
   attackSpeed: 10
   stopDistance: 3
+  deathEffects: {fileID: 219989226995349661, guid: c388800c92f2593449d153aaf8bdd4f4, type: 3}
   speed: 6
   damage: 2
   dropTable: {fileID: -5339630192429333374}
@@ -823,6 +824,8 @@ MonoBehaviour:
   - {fileID: 1869033183921582320, guid: 82b86bc9f3014d54fb14dfb9d9468e63, type: 3}
   - {fileID: 3131163504459650418, guid: ce78ffc8240c04d4d9509b0ccb59de39, type: 3}
   - {fileID: 5243999330328117537, guid: 58cba8bb09c8db443a828e8bf64a3e7d, type: 3}
+  - {fileID: 7651778112536854294, guid: 33689dbc0124b8f4188bc7a046fcb666, type: 3}
+  - {fileID: 7651778112536854294, guid: 33689dbc0124b8f4188bc7a046fcb666, type: 3}
 --- !u!114 &8882100314563965886
 MonoBehaviour:
   m_ObjectHideFlags: 0

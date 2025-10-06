@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class WeaponRotator : MonoBehaviour
 {
-    [SerializeField] private AimProvider aimProvider;
+    //[SerializeField] private AimProvider aimProvider;
     [SerializeField] private float rotationSpeed = 5f;
 
     private Quaternion targetRotation;
@@ -13,11 +13,9 @@ public class WeaponRotator : MonoBehaviour
 
     private void Update()
     {
-        aimDirection = aimProvider.GetAimDirection();
+        aimDirection = InputManager.Instance.GetAimDirection(transform.position);
         UpdateRotation(aimDirection);
     }
-
-    
 
     private void UpdateRotation(Vector2 aimDirection)
     {

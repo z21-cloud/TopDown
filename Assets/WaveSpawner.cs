@@ -63,7 +63,7 @@ public class WaveSpawner : MonoBehaviour
                 currentWaveIndex++;
                 StartCoroutine(StartNextWave(currentWaveIndex));
             }
-            else Debug.Log("WW");
+            //else Debug.Log("WW");
         }
     }
 }

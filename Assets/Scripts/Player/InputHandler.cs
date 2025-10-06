@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputHandler : MonoBehaviour
+/*public class InputHandler : MonoBehaviour
 {
     public float moveInputX { get; set; }
     public float moveInputY { get; set; }
@@ -18,4 +18,4 @@ public class InputHandler : MonoBehaviour
         moveInputX = Input.GetAxisRaw("Horizontal");
         moveInputY = Input.GetAxisRaw("Vertical");
     }
-}
+}*/

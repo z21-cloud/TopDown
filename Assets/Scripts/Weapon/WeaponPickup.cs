@@ -10,6 +10,7 @@ public class WeaponPickup : MonoBehaviour, IPickable
         WeaponHolder holder = picker.GetComponent<WeaponHolder>();
         if (holder != null) holder.EqiupWeapon(this);
     }
+    public PickableType GetPickableType() => PickableType.Weapon;
 
     public Weapon GetWeaponPrefab()
     {

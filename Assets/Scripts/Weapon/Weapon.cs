@@ -20,7 +20,6 @@ public class Weapon : MonoBehaviour
 
     [Header("Weapon Rotator")]
     [SerializeField] private WeaponRotator weaponRotator;
-    [SerializeField] private AimProvider aimProvider;
     public int Damage
     {
         get { return damage; }
@@ -61,7 +60,7 @@ public class Weapon : MonoBehaviour
         Projectile projectileDamage = newProjectile.GetComponent<Projectile>();
         if(projectileDamage != null)
         {
-            projectileDamage.Initialize(aimProvider.GetAimDirection(), projectileSpeed, projectileLifetime, damage, projectileEffects);
+            projectileDamage.Initialize(InputManager.Instance.GetAimDirection(transform.position), projectileSpeed, projectileLifetime, damage, projectileEffects);
         }
     }
 }

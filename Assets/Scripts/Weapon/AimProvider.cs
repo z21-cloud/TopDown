@@ -12,10 +12,8 @@ public class AimProvider : MonoBehaviour
         mainCamera = Camera.main;
     }
 
-    // Update is called once per frame
     private void Update()
     {
-        UpdateAiming();
     }
 
     private void UpdateAiming()

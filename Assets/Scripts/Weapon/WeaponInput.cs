@@ -13,7 +13,7 @@ public class WeaponInput : MonoBehaviour
 
     private void HandleInput()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (InputManager.Instance.ShootPressed)
         {
             weapon.TryShoot();
         }

@@ -1,9 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField] private int maxHealth = 3;
+    [SerializeField] private int healthBreak = 5;
     private int currentHealth;
 
     public UnityEvent<int, int> OnHealthChanged;
@@ -12,14 +14,12 @@ public class Health : MonoBehaviour, IDamageable
     public int Current => currentHealth;
     public int Max => maxHealth;
 
-    private void Awake()
+    private void OnEnable()
     {
         currentHealth = maxHealth;
-    }
 
-    private void Start()
-    {
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
+
     }
 
     public void TakeDamage(int damage)
@@ -37,6 +37,8 @@ public class Health : MonoBehaviour, IDamageable
 
     public void Heal(int amount)
     {
+        if (currentHealth >= maxHealth && currentHealth < healthBreak) AddHeart();
+
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
     }

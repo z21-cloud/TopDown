@@ -39,7 +39,7 @@ public class RangedEnemy : Enemy
 
     protected override void Attack()
     {
-        Debug.Log("attacking");
+        //Debug.Log("attacking");
         anim.SetTrigger("attack");
     }
 

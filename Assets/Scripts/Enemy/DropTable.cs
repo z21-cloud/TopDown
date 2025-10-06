@@ -13,7 +13,8 @@ public class DropTable : MonoBehaviour
         if (roll <= dropChance && weaponsPrefabs.Count > 0)
         {
             int randomIndex = Random.Range(0, weaponsPrefabs.Count);
-            Instantiate(weaponsPrefabs[randomIndex], position, Quaternion.identity);
+            GameObject loot = Instantiate(weaponsPrefabs[randomIndex], position, Quaternion.identity);
+            loot.AddComponent<LootDrop>();
         }
     }
 }

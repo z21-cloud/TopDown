@@ -10,6 +10,8 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float speed = 10f;
     [SerializeField] private float projectileLifeTime = 5f;
     [SerializeField] private GameObject hitEffects;
+    [SerializeField] private bool isEnemyPrefab;
+    [SerializeField] private GameObject destroyEffect;
 
     private Vector2 direction;
     private bool isMoving = false;
@@ -85,6 +87,12 @@ public class Projectile : MonoBehaviour
             Instantiate(hitEffects,
                         transform.position,
                         Quaternion.identity);
+
+        if (isEnemyPrefab && destroyEffect != null)
+        {
+            GameObject effect = Instantiate(destroyEffect, transform.position, Quaternion.identity);
+            Destroy(effect, 1f);
+        }
         Destroy(gameObject);
     }
 }

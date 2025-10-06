@@ -8,6 +8,7 @@ public class WeaponHolder : MonoBehaviour
     private Weapon currentWeapon;
     private WeaponRotator currentWeaponRotator;
     private WeaponInput currentWeaponInput;
+    private WeaponPickup currentWeaponPickup;
 
     private void Start()
     {
@@ -26,6 +27,7 @@ public class WeaponHolder : MonoBehaviour
         currentWeapon = newWeapon;
         currentWeaponRotator = newWeapon.gameObject.GetComponent<WeaponRotator>();
         currentWeaponInput = newWeapon.gameObject.GetComponent<WeaponInput>();
+        currentWeaponPickup = newWeapon.gameObject.GetComponent<WeaponPickup>();
 
         EnableWeaponComponents();
         Destroy(pickup.gameObject);
@@ -36,6 +38,7 @@ public class WeaponHolder : MonoBehaviour
         currentWeapon.enabled = true;
         currentWeaponRotator.enabled = true;
         currentWeaponInput.enabled = true;
+        currentWeaponPickup.enabled = true;
     }
 
     private void GetWeaponComponents()
@@ -43,5 +46,6 @@ public class WeaponHolder : MonoBehaviour
         currentWeapon = weaponSpot.GetComponentInChildren<Weapon>();
         currentWeaponRotator = weaponSpot.GetComponentInChildren<WeaponRotator>();
         currentWeaponInput = weaponSpot.GetComponentInChildren<WeaponInput>();
+        currentWeaponPickup = weaponSpot.GetComponentInChildren<WeaponPickup>();
     }
 }

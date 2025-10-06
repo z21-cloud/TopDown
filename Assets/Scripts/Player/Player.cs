@@ -33,13 +33,26 @@ public class Player : MonoBehaviour
         IPickable pickable = collision.GetComponent<IPickable>();
         if(pickable != null)
         {
+            switch(pickable.GetPickableType())
+            {
+                case PickableType.Weapon:
+                    WeaponHolder weaponHolder = gameObject.GetComponent<WeaponHolder>();
+                    if (weaponHolder != null)
+                        weaponHolder.EqiupWeapon(pickable as WeaponPickup);
+                    break;
+                case PickableType.Hearts:
+                    Health playerHealth = gameObject.GetComponent<Health>();
+                    if (playerHealth != null)
+                        (pickable as HealthPickup).ApplyHeal(playerHealth);
+                    break;
+            }
             pickable.OnPickUp(gameObject);
         }
     }
 
     private void OnPlayerDeath()
     {
-        Debug.Log("Death!");
+        //Debug.Log("Death!");
         gameObject.SetActive(false);
     }
 }

@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
     //private Rigidbody2D rb;
     private Vector3 moveAmount;
     private Player player;
-    private InputHandler inputHandler;
+    //private InputHandler inputHandler;
     public Vector3 MovementVector
     {
         get { return moveAmount; }
@@ -18,13 +18,13 @@ public class Movement : MonoBehaviour
     void Start()
     {
         player = GetComponent<Player>();
-        inputHandler = GetComponent<InputHandler>();
+        //inputHandler = GetComponent<InputHandler>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        PlayerMovement(inputHandler.moveInputX, inputHandler.moveInputY);
+        PlayerMovement(InputManager.Instance.moveInputX, InputManager.Instance.moveInputY);
     }
 
     private void FixedUpdate()

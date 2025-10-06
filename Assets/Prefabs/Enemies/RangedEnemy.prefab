@@ -239,6 +239,7 @@ MonoBehaviour:
   timeBetweenAttacks: 4
   attackSpeed: 0
   stopDistance: 10
+  deathEffects: {fileID: 219989226995349661, guid: c388800c92f2593449d153aaf8bdd4f4, type: 3}
   speed: 10
   damage: 2
   dropTable: {fileID: 2921720834358748186}
@@ -247,7 +248,7 @@ MonoBehaviour:
   bulletSpeed: 25
   bulletDamage: 2
   bulletLifetime: 5
-  projectileEffects: {fileID: 4507321033216485108, guid: fbd76159e5f1a6f478ab24f7e4b365ed, type: 3}
+  projectileEffects: {fileID: 4507321033216485108, guid: 4c0a42831ed71864b9f43f40d76a6245, type: 3}
 --- !u!114 &2921720834358748186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,6 +267,8 @@ MonoBehaviour:
   - {fileID: 1869033183921582320, guid: 82b86bc9f3014d54fb14dfb9d9468e63, type: 3}
   - {fileID: 3131163504459650418, guid: ce78ffc8240c04d4d9509b0ccb59de39, type: 3}
   - {fileID: 5243999330328117537, guid: 58cba8bb09c8db443a828e8bf64a3e7d, type: 3}
+  - {fileID: 7651778112536854294, guid: 33689dbc0124b8f4188bc7a046fcb666, type: 3}
+  - {fileID: 7651778112536854294, guid: 33689dbc0124b8f4188bc7a046fcb666, type: 3}
 --- !u!114 &901503804907528286
 MonoBehaviour:
   m_ObjectHideFlags: 0

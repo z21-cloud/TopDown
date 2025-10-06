@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System;
 
 public abstract class Enemy : MonoBehaviour
 {
     [SerializeField] protected float timeBetweenAttacks = 2f;
     [SerializeField] protected float attackSpeed = 2f;
     [SerializeField] protected float stopDistance = 2f;
+    [SerializeField] protected GameObject deathEffects;
     
     [SerializeField] private float speed = 10f;
     [SerializeField] private int damage = 10;
@@ -47,7 +49,6 @@ public abstract class Enemy : MonoBehaviour
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         attackTimer = new Timer(timeBetweenAttacks);
-
     }
 
     protected virtual void Update()
@@ -85,8 +86,15 @@ public abstract class Enemy : MonoBehaviour
     private void Death()
     {
         dropTable?.GenerateDropChance(transform.position);
+        CreateDeathEffect();
         Destroy(gameObject);
         //add listener to set active false ;  object pooling
+    }
+
+    private void CreateDeathEffect()
+    {
+        GameObject effects = Instantiate(deathEffects, transform.position, Quaternion.identity);
+        Destroy(effects, 1f);
     }
 
     private void OnDrawGizmos()
