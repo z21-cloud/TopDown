@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AimProvider : MonoBehaviour
+/*public class AimProvider : MonoBehaviour
 {
     private Vector2 aimDirection;
     private Camera mainCamera;
@@ -24,4 +24,4 @@ public class AimProvider : MonoBehaviour
     }
 
     public Vector2 GetAimDirection() => aimDirection;
-}
+}*/

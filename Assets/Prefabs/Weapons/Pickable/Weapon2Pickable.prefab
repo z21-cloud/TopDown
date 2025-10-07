@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 93038345104666715}
   - component: {fileID: 6774220098982769097}
-  - component: {fileID: 3746266379035898272}
-  - component: {fileID: 7846376454370035168}
-  - component: {fileID: -7416560416729746521}
+  - component: {fileID: -394844916884465190}
+  - component: {fileID: 6107313169758459850}
   m_Layer: 0
-  m_Name: Weapon2
+  m_Name: Weapon2Pickable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +93,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3746266379035898272
+--- !u!61 &-394844916884465190
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869033183921582320}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.06432462, y: 2.7176843}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.48738733, y: 0.0779993}
+    oldSize: {x: 5.1, y: 6.44}
+    newSize: {x: 5.1, y: 6.44}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 5.1, y: 6.4399996}
+  m_EdgeRadius: 0
+--- !u!114 &6107313169758459850
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,43 +148,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1869033183921582320}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e47f2af1d2e8cd479ac5e6a80a82f77, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c4e0269c2eb49d43bf7b6ff23126c37, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  projectileSpeed: 25
-  timeBetweenShots: 0.5
-  projectileLifetime: 5
-  damage: 2
-  projectilePrefab: {fileID: 8210801187123162096, guid: f1a2d0cd49ec4bf44af8fa21f73d4916, type: 3}
-  projectileEffects: {fileID: 4507321033216485108, guid: fbd76159e5f1a6f478ab24f7e4b365ed, type: 3}
-  projectileParent: {fileID: 5586911881804524449}
-  weaponRotator: {fileID: -7416560416729746521}
---- !u!114 &7846376454370035168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1869033183921582320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcb00f3771489a143b319db4e754440d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 3746266379035898272}
---- !u!114 &-7416560416729746521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1869033183921582320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff1d0438999d6954a9c196d86181c586, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 5
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponPickup
+  weaponPrefab: {fileID: 3746266379035898272, guid: 82b86bc9f3014d54fb14dfb9d9468e63, type: 3}
 --- !u!1 &2075041162982727448
 GameObject:
   m_ObjectHideFlags: 0

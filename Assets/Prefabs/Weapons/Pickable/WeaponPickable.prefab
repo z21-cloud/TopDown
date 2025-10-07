@@ -131,11 +131,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1029394499747765986}
   - component: {fileID: 6402789926781014139}
-  - component: {fileID: 777137125789159899}
-  - component: {fileID: 931240978260002742}
-  - component: {fileID: 4873755877896843423}
+  - component: {fileID: 335809733992896576}
+  - component: {fileID: 3569400633543365056}
   m_Layer: 6
-  m_Name: Handle
+  m_Name: WeaponPickable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,7 +179,53 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &777137125789159899
+--- !u!61 &335809733992896576
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8960724841747571090}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &3569400633543365056
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,40 +234,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8960724841747571090}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e47f2af1d2e8cd479ac5e6a80a82f77, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c4e0269c2eb49d43bf7b6ff23126c37, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  projectileSpeed: 15
-  timeBetweenShots: 0.2
-  projectileLifetime: 4
-  damage: 1
-  projectilePrefab: {fileID: 6439546555332605565, guid: cc3eb60f6ecb0174a8ffdd4a52fc74e5, type: 3}
-  projectileEffects: {fileID: 4507321033216485108, guid: fbd76159e5f1a6f478ab24f7e4b365ed, type: 3}
-  projectileParent: {fileID: 6538909164693400888}
-  weaponRotator: {fileID: 4873755877896843423}
---- !u!114 &931240978260002742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8960724841747571090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcb00f3771489a143b319db4e754440d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 777137125789159899}
---- !u!114 &4873755877896843423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8960724841747571090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff1d0438999d6954a9c196d86181c586, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 5
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponPickup
+  weaponPrefab: {fileID: 777137125789159899, guid: dccafb9994da52343bb39a51e21b0bc0, type: 3}

@@ -649,14 +649,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c60712b75bc6144e94bc4913e33a243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropChance: 0.2
+  dropChance: 1
   weaponsPrefabs:
-  - {fileID: 8960724841747571090, guid: dccafb9994da52343bb39a51e21b0bc0, type: 3}
-  - {fileID: 1869033183921582320, guid: 82b86bc9f3014d54fb14dfb9d9468e63, type: 3}
-  - {fileID: 3131163504459650418, guid: ce78ffc8240c04d4d9509b0ccb59de39, type: 3}
-  - {fileID: 5243999330328117537, guid: 58cba8bb09c8db443a828e8bf64a3e7d, type: 3}
   - {fileID: 7651778112536854294, guid: 33689dbc0124b8f4188bc7a046fcb666, type: 3}
   - {fileID: 7651778112536854294, guid: 33689dbc0124b8f4188bc7a046fcb666, type: 3}
+  - {fileID: 1869033183921582320, guid: c6730b6108edc7a498b124f9e8e73d67, type: 3}
+  - {fileID: 3131163504459650418, guid: f6dc7e8c28a520b4288e91a7e06098a8, type: 3}
+  - {fileID: 5243999330328117537, guid: 23397255fbc78de4bb32593d388f9a3c, type: 3}
+  - {fileID: 8960724841747571090, guid: 6f5bec08fd2b35541a2b8bbba826078c, type: 3}
 --- !u!114 &-2645045116410135322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -670,6 +670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHealth: 1
+  healthBreak: 5
   OnHealthChanged:
     m_PersistentCalls:
       m_Calls: []
