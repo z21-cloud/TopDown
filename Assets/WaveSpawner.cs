@@ -12,9 +12,11 @@ public class WaveSpawner : MonoBehaviour
         public float timeBetweenSpawns;
     }
 
-    public Wave[] waves;
-    public Transform[] spawnPoints;
-    public float timeBetweenSpawns;
+    [SerializeField] private Wave[] waves;
+    [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private float timeBetweenSpawns;
+    [SerializeField] private GameObject boss;
+    [SerializeField] private Transform bossSpawnPoint;
 
     private Wave currentWave;
     private int currentWaveIndex;
@@ -63,7 +65,10 @@ public class WaveSpawner : MonoBehaviour
                 currentWaveIndex++;
                 StartCoroutine(StartNextWave(currentWaveIndex));
             }
-            //else Debug.Log("WW");
+            else
+            {
+                Instantiate(boss, bossSpawnPoint.position, bossSpawnPoint.rotation);
+            }
         }
     }
 }

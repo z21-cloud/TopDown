@@ -818,7 +818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c60712b75bc6144e94bc4913e33a243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropChance: 1
+  dropChance: 0.2
   weaponsPrefabs:
   - {fileID: 7651778112536854294, guid: 33689dbc0124b8f4188bc7a046fcb666, type: 3}
   - {fileID: 7651778112536854294, guid: 33689dbc0124b8f4188bc7a046fcb666, type: 3}
