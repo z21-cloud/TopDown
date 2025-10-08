@@ -5,6 +5,7 @@ public class InputManager : MonoBehaviour
 {
     public static InputManager Instance { get; private set; }
     public bool ShootPressed { get; private set; }
+    public bool DashPressed { get; private set; }
     public float moveInputX { get; set; }
     public float moveInputY { get; set; }
 
@@ -43,6 +44,7 @@ public class InputManager : MonoBehaviour
     private void UpdateActions()
     {
         ShootPressed = Input.GetMouseButtonDown(0);
+        DashPressed = Input.GetButtonDown("Jump");
     }
 
     public Vector2 GetAimDirection(Vector3 playerPos)

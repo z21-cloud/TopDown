@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class LootDrop : MonoBehaviour
@@ -53,19 +52,19 @@ public class LootDrop : MonoBehaviour
 
     public void Start()
     {
-        // Выбираем случайное направление в радиусе
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         Vector2 randomDir = Random.insideUnitCircle.normalized;
         Vector2 spawnPosition = (Vector2)transform.position;
 
-        // Добавляем Rigidbody2D для “подброса”
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Rigidbody2D пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         Rigidbody2D rb = gameObject.AddComponent<Rigidbody2D>();
         rb.gravityScale = 3f;
 
-        // Задаём импульс (направление + вверх)
+        // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ + пїЅпїЅпїЅпїЅпїЅ)
         Vector2 launchDir = randomDir + Vector2.up * 0.5f;
         rb.AddForce(launchDir.normalized * force, ForceMode2D.Impulse);
 
-        // Через 1 сек убираем физику (предмет “ложится”)
+        // пїЅпїЅпїЅпїЅпїЅ 1 пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
         gameObject.GetComponent<MonoBehaviour>().StartCoroutine(RemovePhysicsAfterDelay(rb));
     }
 
