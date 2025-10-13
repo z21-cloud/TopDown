@@ -12,6 +12,7 @@ public class PatrolController : MonoBehaviour
     [SerializeField] private float distanceTreshold = .1f;
     
     public bool CanPatrol { get; private set; }
+    public bool IsMoving { get; private set; }
     public System.Action<bool> OnMoveStateChanged;
 
     private List<Transform> currentPatrolRoute;
@@ -42,6 +43,7 @@ public class PatrolController : MonoBehaviour
             randomPoint = Random.Range(0, currentPatrolRoute.Count);
 
             OnMoveStateChanged?.Invoke(true);
+            IsMoving = true;
             while (Vector2.Distance(transform.position, currentPatrolRoute[randomPoint].position) > distanceTreshold)
             {
                 transform.position = Vector2.MoveTowards(transform.position, currentPatrolRoute[randomPoint].position, speed * Time.deltaTime);
@@ -49,6 +51,7 @@ public class PatrolController : MonoBehaviour
             }
 
             OnMoveStateChanged?.Invoke(false);
+            IsMoving = false;
             currentPatrolRoute.RemoveAt(randomPoint);
             yield return new WaitForSeconds(waitTime);
         }

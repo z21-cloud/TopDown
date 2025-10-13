@@ -9,9 +9,11 @@ public class BossBehaviour : MonoBehaviour
     private PatrolController patrolController;
     private SummonController summonController;
     private Coroutine attackCoroutine;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private Health health;
+
     void Start()
     {
+        health = GetComponent<Health>();
         spikeAttack = GetComponent<SpikeAttack>();
         patrolController = GetComponent<PatrolController>();
         summonController = GetComponent<SummonController>();
@@ -19,12 +21,16 @@ public class BossBehaviour : MonoBehaviour
         if(patrolController != null)
         {
             patrolController.OnMoveStateChanged += HandleMoveState;
-            patrolController.StartPatrol();
         }
 
         if(summonController != null)
         {
             summonController.SetSummonDuringMovement(true);
+        }
+
+        if(health != null)
+        {
+            health.OnDeath.AddListener(Death);
         }
     }
 
@@ -47,8 +53,24 @@ public class BossBehaviour : MonoBehaviour
 
     private IEnumerator AttackCoroutine()
     {
-        spikeAttack.StartAttack();
-        yield return new WaitForSeconds(timeBetweenAttacks);
+        while(true)
+        {
+            yield return new WaitForSeconds(timeBetweenAttacks);
+            spikeAttack.StartAttack();
+        }
+    }
+
+    public void AnimationEnding()
+    {
+        if (patrolController != null)
+        {
+            patrolController.StartPatrol();
+        }
+    }
+
+    private void Death()
+    {
+        Destroy(gameObject);
     }
 
     private void OnDestroy()
@@ -57,5 +79,10 @@ public class BossBehaviour : MonoBehaviour
         {
             patrolController.OnMoveStateChanged -= HandleMoveState;
         }
+    }
+
+    private void OnDisable()
+    {
+        health.OnDeath.RemoveListener(Death);
     }
 }
