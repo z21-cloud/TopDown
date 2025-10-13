@@ -13,7 +13,6 @@ public class PatrolController : MonoBehaviour
     
     public bool CanPatrol { get; private set; }
     public System.Action<bool> OnMoveStateChanged;
-    public System.Action<bool> OnSummonStateChanged;
 
     private List<Transform> currentPatrolRoute;
     private int randomPoint;
@@ -43,7 +42,6 @@ public class PatrolController : MonoBehaviour
             randomPoint = Random.Range(0, currentPatrolRoute.Count);
 
             OnMoveStateChanged?.Invoke(true);
-            OnSummonStateChanged?.Invoke(false);
             while (Vector2.Distance(transform.position, currentPatrolRoute[randomPoint].position) > distanceTreshold)
             {
                 transform.position = Vector2.MoveTowards(transform.position, currentPatrolRoute[randomPoint].position, speed * Time.deltaTime);
@@ -51,7 +49,6 @@ public class PatrolController : MonoBehaviour
             }
 
             OnMoveStateChanged?.Invoke(false);
-            OnSummonStateChanged?.Invoke(true);
             currentPatrolRoute.RemoveAt(randomPoint);
             yield return new WaitForSeconds(waitTime);
         }

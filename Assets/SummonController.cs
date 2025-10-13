@@ -1,9 +1,11 @@
 using UnityEngine;
 
-public class Summon : MonoBehaviour
+public class SummonController : MonoBehaviour
 {
     [SerializeField] private float timeBetweenSummons = 5f;
     [SerializeField] private Enemy[] enemyToSummon;
+    [SerializeField] private bool summonDuringMove = false;
+    
     private float summonTime;
     private PatrolController patrolController;  
 
@@ -12,16 +14,20 @@ public class Summon : MonoBehaviour
         patrolController = GetComponent<PatrolController>();
         if (patrolController != null)
         {
-            patrolController.OnSummonStateChanged += HandleSummonState;
+            patrolController.OnMoveStateChanged += HandleMoveState;
         }
     }
 
-    public void HandleSummonState(bool canSummon)
+    private void HandleMoveState(bool isMoving)
     {
-        if (Time.time >= summonTime && canSummon)
+        if (Time.time >= summonTime)
         {
-            summonTime = Time.time + timeBetweenSummons;
-            SummonRandomEnemy();
+            if(summonDuringMove && isMoving || 
+                !summonDuringMove && !isMoving)
+            {
+                summonTime = Time.time + timeBetweenSummons;
+                SummonRandomEnemy();
+            }
         }
     }
 
@@ -32,9 +38,14 @@ public class Summon : MonoBehaviour
 
     private int GetRandomIndex(int length) => Random.Range(0, length);
 
+    public void SetSummonDuringMovement(bool value)
+    {
+        summonDuringMove = value;
+    }
+
     private void OnDestroy()
     {
         if (patrolController != null)
-            patrolController.OnSummonStateChanged -= HandleSummonState;
+            patrolController.OnMoveStateChanged -= HandleMoveState;
     }
 }

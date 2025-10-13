@@ -19,26 +19,20 @@ public class Summoner : Enemy
         if (patrolController != null)
         {
             patrolController.OnMoveStateChanged += HandleMoveStateChanged;
-            patrolController.OnSummonStateChanged += HandleSummonAnimStateChanged;
             patrolController.StartPatrol();
         }
-    }
-
-    private void HandleSummonAnimStateChanged(bool isSummoning)
-    {
-        if(isSummoning) anim.SetTrigger("summon");
     }
 
     private void HandleMoveStateChanged(bool isMoving)
     {
         anim.SetBool("isRunning", isMoving);
+        if (!isMoving) anim.SetTrigger("summon");
     }
 
     private void OnDestroy()
     {
         if (patrolController != null)
         {
-            patrolController.OnSummonStateChanged -= HandleSummonAnimStateChanged;
             patrolController.OnMoveStateChanged -= HandleMoveStateChanged;
         }
     }
