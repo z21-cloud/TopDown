@@ -228,10 +228,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 761230713972080881}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7cd8796727a57d49b96f1f74f2785c8, type: 3}
+  m_Script: {fileID: 11500000, guid: cd1b9aecc6bded34c949982fa496ddcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenAttacks: 4
+  timeBetweenSummons: 5
+  enemyToSummon:
+  - {fileID: 8865470066214740610, guid: 93fd7906776326948a9fd183b374cdf7, type: 3}
+  - {fileID: 291912819100256514, guid: b907356239e13d44997bbbfab25cae47, type: 3}
+  - {fileID: 1657541548357770204, guid: c70fcac40a18ac64eb68132b3fb0667c, type: 3}
+  - {fileID: 1623454949354323240, guid: 610125f89d6dfef4b89b4df225550ee5, type: 3}
+  summonDuringMove: 0
 --- !u!114 &8073990913848986525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,16 +247,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 761230713972080881}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56f244ca9fb14c941b249c09913498c3, type: 3}
+  m_Script: {fileID: 11500000, guid: a32a7e1222057f646b823dae1454b722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenSummons: 5
-  enemyToSummon:
-  - {fileID: 8865470066214740610, guid: 93fd7906776326948a9fd183b374cdf7, type: 3}
-  - {fileID: 1657541548357770204, guid: c70fcac40a18ac64eb68132b3fb0667c, type: 3}
-  - {fileID: 1623454949354323240, guid: 610125f89d6dfef4b89b4df225550ee5, type: 3}
-  - {fileID: 291912819100256514, guid: b907356239e13d44997bbbfab25cae47, type: 3}
-  summonDuringMove: 1
+  timeBetweenAttacks: 2
 --- !u!114 &8799658887310015984
 MonoBehaviour:
   m_ObjectHideFlags: 0

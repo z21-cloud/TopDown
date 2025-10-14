@@ -847,10 +847,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6040555885865403945}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56f244ca9fb14c941b249c09913498c3, type: 3}
+  m_Script: {fileID: 11500000, guid: cd1b9aecc6bded34c949982fa496ddcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenSummons: 1
+  timeBetweenSummons: 5
   enemyToSummon:
   - {fileID: 291912819100256514, guid: b907356239e13d44997bbbfab25cae47, type: 3}
   summonDuringMove: 0

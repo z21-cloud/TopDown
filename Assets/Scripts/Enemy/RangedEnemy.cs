@@ -28,7 +28,8 @@ public class RangedEnemy : Enemy
             {
                 MoveToPlayer();
             }
-            TryAttack();
+            else
+                TryAttack();
         }
     }
 

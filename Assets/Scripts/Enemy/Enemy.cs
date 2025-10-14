@@ -16,6 +16,7 @@ public abstract class Enemy : MonoBehaviour
 
     [SerializeField] private DropTable dropTable;
     protected Transform playerTransform;
+    protected IMovementStrategy movementStrategy;
     protected Timer attackTimer;
     protected Health health;
     public float Speed
@@ -49,6 +50,7 @@ public abstract class Enemy : MonoBehaviour
     {
         playerTransform = ServiceLocator.Get<Player>().transform;
         attackTimer = new Timer(timeBetweenAttacks);
+        movementStrategy = new ChasePlayerMovement();
     }
 
     protected virtual void Update()
@@ -57,16 +59,11 @@ public abstract class Enemy : MonoBehaviour
         {
             if (Vector2.Distance(transform.position, playerTransform.position) > stopDistance)
             {
-                MoveToPlayer();
+                movementStrategy.Move(transform, playerTransform, Speed);
             }
             else
                 TryAttack();
         }
-    }
-
-    private void MoveToPlayer()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, Speed * Time.deltaTime);
     }
 
     protected void TryAttack()
