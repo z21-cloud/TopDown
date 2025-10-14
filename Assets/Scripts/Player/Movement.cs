@@ -18,7 +18,7 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
-        player = GetComponent<Player>();
+        player = ServiceLocator.Get<Player>();
         dash = GetComponent<Dash>();
         //inputHandler = GetComponent<InputHandler>();
     }

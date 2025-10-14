@@ -47,7 +47,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Start()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        playerTransform = ServiceLocator.Get<Player>().transform;
         attackTimer = new Timer(timeBetweenAttacks);
     }
 

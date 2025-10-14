@@ -8,7 +8,7 @@ public class PlayerHealthUI : MonoBehaviour
     private void Awake()
     {
         if (health == null)
-            health = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Health>();
+            health = ServiceLocator.Get<Player>()?.GetComponent<Health>();
 
         if (heartPool == null)
             heartPool = GetComponentInChildren<HeartPool>();

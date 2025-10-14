@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] private Transform playerTransform;
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private SpriteRenderer background;
     [SerializeField] private float speed = 2f;
@@ -13,6 +12,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private Vector2 offset = new Vector2(0f, 0f);
 
     [SerializeField] private Camera mainCamera;
+    private Transform playerTransform;
     private Vector3 minBackgroundBounds;
     private Vector3 maxBackgroundBounds;
     private float cameraHalfHeight;
@@ -20,7 +20,7 @@ public class CameraFollow : MonoBehaviour
 
     private void Start()
     {
-
+        playerTransform = ServiceLocator.Get<Player>().transform;
         CalculateBackgroundBounds();
         CalculateCameraSize();
     }

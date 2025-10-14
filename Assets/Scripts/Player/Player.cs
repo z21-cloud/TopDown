@@ -41,9 +41,8 @@ public class Player : MonoBehaviour
                         weaponHolder.EqiupWeapon(pickable as WeaponPickup);
                     break;
                 case PickableType.Hearts:
-                    Health playerHealth = gameObject.GetComponent<Health>();
-                    if (playerHealth != null)
-                        (pickable as HealthPickup).ApplyHeal(playerHealth);
+                    if (health != null)
+                        (pickable as HealthPickup).ApplyHeal(health);
                     break;
             }
             pickable.OnPickUp(gameObject);
