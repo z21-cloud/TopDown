@@ -9,11 +9,19 @@ public class SummonController : MonoBehaviour
     
     private PatrolController patrolController;
     private Coroutine summonRoutine;
+    private bool isMoving;
 
     private void Start()
     {
         patrolController = GetComponent<PatrolController>();
+        if (patrolController != null)
+            patrolController.OnMoveStateChanged += MoveState;
         summonRoutine = StartCoroutine(SummonLoop());
+    }
+
+    private void MoveState(bool value)
+    {
+        isMoving = value;
     }
 
     private IEnumerator SummonLoop()
@@ -21,8 +29,8 @@ public class SummonController : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(timeBetweenSummons);
-            if (summonDuringMove && patrolController.IsMoving ||
-                !summonDuringMove && !patrolController.IsMoving)
+            if (summonDuringMove && isMoving ||
+                !summonDuringMove && !isMoving)
             {
                 SummonRandomEnemy();
             }
@@ -31,7 +39,7 @@ public class SummonController : MonoBehaviour
 
     private void SummonRandomEnemy()
     {
-        Instantiate(enemyToSummon[GetRandomIndex(enemyToSummon.Length)], transform.position, transform.rotation);
+        Instantiate(EnemyPool.Instance.GetPooledObject(enemyToSummon[GetRandomIndex(enemyToSummon.Length)].type), transform.position, transform.rotation);
     }
 
     private int GetRandomIndex(int length) => Random.Range(0, length);
@@ -44,5 +52,7 @@ public class SummonController : MonoBehaviour
     private void OnDisable()
     {
         if (summonRoutine != null) StopCoroutine(summonRoutine);
+        if (patrolController != null)
+            patrolController.OnMoveStateChanged -= MoveState;
     }
 }

@@ -11,17 +11,22 @@ public class PatrolController : MonoBehaviour
     [SerializeField] private float waitTime = 1f;
     [SerializeField] private float distanceTreshold = .1f;
     
-    public bool CanPatrol { get; private set; }
     public bool IsMoving { get; private set; }
     public System.Action<bool> OnMoveStateChanged;
 
     private List<Transform> currentPatrolRoute;
     private int randomPoint;
     private Coroutine patrolRoutine;
+    private IMovementStrategy movementStrategy = new ChasePlayerMovement();
 
     private void OnEnable()
     {
-        if(patrolParent == null)
+        InitializePatrolPoints();
+    }
+
+    private void InitializePatrolPoints()
+    {
+        if (patrolParent == null)
             patrolParent = GameObject.FindGameObjectWithTag("PatrolPoint");
 
         if (patrolParent != null)
@@ -34,39 +39,50 @@ public class PatrolController : MonoBehaviour
 
     private IEnumerator PatrolRoute()
     {
-        while (CanPatrol)
+        while (true)
         {
             if (currentPatrolRoute.Count == 0)
             {
                 currentPatrolRoute = new List<Transform>(patrols);
             }
-            randomPoint = Random.Range(0, currentPatrolRoute.Count);
 
-            OnMoveStateChanged?.Invoke(true);
-            IsMoving = true;
-            while (Vector2.Distance(transform.position, currentPatrolRoute[randomPoint].position) > distanceTreshold)
-            {
-                transform.position = Vector2.MoveTowards(transform.position, currentPatrolRoute[randomPoint].position, speed * Time.deltaTime);
-                yield return null;
-            }
+            Transform target = GetNextPatrolPoint();
+            yield return MoveToTarget(target);
 
-            OnMoveStateChanged?.Invoke(false);
-            IsMoving = false;
-            currentPatrolRoute.RemoveAt(randomPoint);
             yield return new WaitForSeconds(waitTime);
         }
+    }
+
+    private IEnumerator MoveToTarget(Transform target)
+    {
+        OnMoveStateChanged?.Invoke(true);
+        IsMoving = true;
+        while (Vector2.Distance(transform.position, target.position) > distanceTreshold)
+        {
+            movementStrategy.Move(transform, target, speed);
+            yield return null;
+        }
+
+        OnMoveStateChanged?.Invoke(false);
+        IsMoving = false;
+    }
+
+    private Transform GetNextPatrolPoint()
+    {
+        randomPoint = Random.Range(0, currentPatrolRoute.Count);
+        Transform target = currentPatrolRoute[randomPoint];
+        currentPatrolRoute.RemoveAt(randomPoint);
+        return target;
     }
 
     public void StartPatrol()
     {
         if (patrolRoutine != null) StopCoroutine(patrolRoutine);
-        CanPatrol = true;
         patrolRoutine = StartCoroutine(PatrolRoute());
     }
 
     public void StopPatrol()
     {
-        CanPatrol = false;
         if (patrolRoutine != null)
         {
             StopCoroutine(patrolRoutine);
@@ -78,6 +94,5 @@ public class PatrolController : MonoBehaviour
     private void OnDisable()
     {
         StopAllCoroutines();
-        CanPatrol = false;
     }
 }

@@ -7,7 +7,7 @@ public class WaveSpawner : MonoBehaviour
     [System.Serializable]
     public class Wave
     {
-        public Enemy[] enemies;
+        public EnemyType[] enemies;
         public int count;
         public float timeBetweenSpawns;
     }
@@ -25,7 +25,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = ServiceLocator.Get<Player>().transform;
         StartCoroutine(StartNextWave(currentWaveIndex));
     }
 
@@ -44,9 +44,13 @@ public class WaveSpawner : MonoBehaviour
         {
             if (player = null) yield break;
 
-            Enemy randomEnemy = currentWave.enemies[Random.Range(0, currentWave.enemies.Length)];
+            EnemyType randomEnemy = currentWave.enemies[Random.Range(0, currentWave.enemies.Length)];
             Transform randomSpot = spawnPoints[Random.Range(0, spawnPoints.Length)];
-            Instantiate(randomEnemy, randomSpot.position, randomSpot.rotation);
+
+            GameObject enemyFromPool = EnemyPool.Instance.GetPooledObject(randomEnemy);
+            enemyFromPool.transform.position = randomSpot.position;
+            enemyFromPool.transform.rotation = randomSpot.rotation;
+            enemyFromPool.SetActive(true);
 
             if (i == currentWave.count - 1) isFinishedSpawning = true;
             else isFinishedSpawning = false;

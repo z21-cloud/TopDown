@@ -2486,6 +2486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1964917299}
   - component: {fileID: 1964917300}
+  - component: {fileID: 1964917301}
   m_Layer: 0
   m_Name: WaveSpawner
   m_TagString: Untagged
@@ -2522,16 +2523,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - enemies:
-    - {fileID: 8865470066214740610, guid: 93fd7906776326948a9fd183b374cdf7, type: 3}
+  - enemies: 00000000
     count: 1
     timeBetweenSpawns: 1
-  - enemies:
-    - {fileID: 1657541548357770204, guid: c70fcac40a18ac64eb68132b3fb0667c, type: 3}
+  - enemies: 01000000
     count: 1
     timeBetweenSpawns: 1
-  - enemies:
-    - {fileID: 1623454949354323240, guid: 610125f89d6dfef4b89b4df225550ee5, type: 3}
+  - enemies: 03000000
     count: 1
     timeBetweenSpawns: 1
   spawnPoints:
@@ -2549,6 +2547,27 @@ MonoBehaviour:
   timeBetweenSpawns: 1
   boss: {fileID: 761230713972080881, guid: abd5c6f943147944b90e019655bbc4fb, type: 3}
   bossSpawnPoint: {fileID: 221491873}
+--- !u!114 &1964917301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964917298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c55fd3d1d51e4846b3bef3cc01958ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesPrefabs:
+  - type: 0
+    prefab: {fileID: 4224975538451248586, guid: 93fd7906776326948a9fd183b374cdf7, type: 3}
+  - type: 1
+    prefab: {fileID: 3904877695522066954, guid: c70fcac40a18ac64eb68132b3fb0667c, type: 3}
+  - type: 2
+    prefab: {fileID: 9142442333264617370, guid: b907356239e13d44997bbbfab25cae47, type: 3}
+  - type: 3
+    prefab: {fileID: 6040555885865403945, guid: 610125f89d6dfef4b89b4df225550ee5, type: 3}
 --- !u!1 &1968896472
 GameObject:
   m_ObjectHideFlags: 0

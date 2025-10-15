@@ -4,8 +4,17 @@ using UnityEngine;
 using UnityEditor;
 using System;
 
+public enum EnemyType
+{
+    Melee,
+    Ranged,
+    Minion,
+    Summoner
+}
+
 public abstract class Enemy : MonoBehaviour
 {
+    public EnemyType type;
     [SerializeField] protected float timeBetweenAttacks = 2f;
     [SerializeField] protected float attackSpeed = 2f;
     [SerializeField] protected float stopDistance = 2f;
@@ -84,7 +93,7 @@ public abstract class Enemy : MonoBehaviour
     {
         dropTable?.GenerateDropChance(transform.position);
         CreateDeathEffect();
-        Destroy(gameObject);
+        gameObject.SetActive(false);
         //add listener to set active false ;  object pooling
     }
 
