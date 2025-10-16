@@ -53,9 +53,9 @@ public class Weapon : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject newProjectile = Instantiate(projectilePrefab, 
-                                        projectileParent.position, 
-                                        weaponRotator.GetTargetRotation());
+        GameObject newProjectile = BulletPoolManager.Instance.GetBullet();
+        newProjectile.transform.position = projectileParent.position;
+        newProjectile.transform.rotation = weaponRotator.GetTargetRotation();
 
         Projectile projectileDamage = newProjectile.GetComponent<Projectile>();
         if(projectileDamage != null)

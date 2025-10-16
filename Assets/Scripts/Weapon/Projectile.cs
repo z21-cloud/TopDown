@@ -93,6 +93,6 @@ public class Projectile : MonoBehaviour
             GameObject effect = Instantiate(destroyEffect, transform.position, Quaternion.identity);
             Destroy(effect, 1f);
         }
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }
